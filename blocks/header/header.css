@@ -1,0 +1,12 @@
+@import url(./__logo/header__logo.css);
+.header {
+    max-width: 880px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: auto;
+    padding-top: 45px;
+    border-bottom: 1px solid #545454;
+}
+   
