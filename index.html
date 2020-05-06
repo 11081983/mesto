@@ -1,23 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./pages/index.css">
     <title>Mesto</title>
 </head>
+
 <body>
     <div class="page">
         <header class="header">
             <img class="header__logo" src="images/logo.svg" alt="логотип Место и Россия">
         </header>
         <main>
-            <section class="profile"></section>
+            <section class="profile">
+                <div class="profile__data">
+                    <img class="avatar" src="images/Avatar.png" alt="фотография пользователя">
+                    <div class="profile__info">
+                        <h1 class="profile__name">Жак-Ив Кусто</h1>
+                        <button class="profile__edit-button">
+                            <img src="images/VectorEditButton.svg" alt="Редактирование профиля">
+                        </button>
+                                        <h2 class="profile__occupation">Исследователь океана</h2>
+                                    </div>
+                </div>
+                <button class="profile__add-button">
+                    <img src="images/VectorAddButton.svg" alt="Добавление профиля">
+                </button>
+            </section>
             <section class="elements"></section>
         </main>
         <footer>
         </footer>
     </div>
-    
+
 </body>
+
 </html>

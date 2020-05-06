@@ -1,0 +1,8 @@
+.profile__info {
+    color: white;
+    max-width: 336px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
