@@ -4,3 +4,9 @@
     background-repeat: no-repeat;
     padding-bottom: 40px;
 }
+
+@media screen and (max-width: 900px) {
+    .header__logo {
+        margin-left: 27px;
+    }
+}
