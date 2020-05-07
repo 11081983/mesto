@@ -1,0 +1,13 @@
+@import url(./__container/popup__container.css);
+@import url(./__toggle-image/popup__toggle-image.css);
+@import url(./__toggle/popup__toggle.css);
+.popup {
+    background: #000000;
+    opacity: 0.5;
+    position: absolute;
+    width: 1280px;
+    height: 1220px;
+    z-index: 1;
+    
+    /* display: none; */
+}
