@@ -1,3 +1,5 @@
+@import url(./_occupation/popup__item_occupation.css);
+
 .popup__item {
     border: none;
     border-bottom: 1px solid #000000; ;
@@ -7,7 +9,3 @@
     margin-bottom: 40px;
 }
 
-.popup__item:last-of-type {
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
