@@ -1,6 +1,5 @@
 .popup__button {
-    width: 358px;
-    height: 50px;
+    width: 100%;
     color: white;
     background-color: black;
     font-family: 'Inter';
@@ -8,4 +7,6 @@
     font-size: 18px;
     line-height: 22px;
     text-align: center;
+    padding: 12px 0;
+    
 }
