@@ -4,9 +4,11 @@
     max-height: 50px;
     background: none;
     margin-top: 35px;
-   
+    
 }
-
+.profile__add-button:hover {
+    opacity: 0.6;
+}
 
 @media screen and (max-width: 900px) {
     .profile__add-button {
