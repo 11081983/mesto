@@ -6,14 +6,28 @@ function openClick() {
 }
 element.addEventListener('click', openClick);
 
-
 let button = document.querySelector('.popup__toggle-image');
 function closeClick() {
-
     let close = document.querySelector('.popup_opened');
     close.classList.remove('popup_opened');
 
+}
+button.addEventListener('click', closeClick);
+
+let formElement = document.querySelector('.form');
+
+function formSubmitHandler(evt) {
+    evt.preventDefault();
+
+    let nameInput = document.querySelector('.popup__item');
+    let jobInput = document.querySelector('.popup__item_occupation');
+
+    let name = document.querySelector('.profile__name');
+    let job = document.querySelector('.profile__occupation');
+
+    name.textContent = nameInput.value;
+    job.textContent = jobInput.value;
+    closeClick();
 
 }
-
-button.addEventListener('click', closeClick);
+formElement.addEventListener('submit', formSubmitHandler);
