@@ -1,5 +1,11 @@
-.profile__main-string{
+.profile__main-string {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+@media screen and (max-width: 620px) {
+    .profile__main-string {
+        max-width: 250px;
+    }
 }
