@@ -14,5 +14,5 @@
 типы устройств.
 
 
-* [Сайт на GitHub pages](https://11081983.github.io/mesto/)
+* [Сайт на GitHub pages](https://11081983.github.io/mesto)
 
