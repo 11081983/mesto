@@ -19,7 +19,7 @@ const formElement = document.querySelector('.form');
 function formSubmitHandler(evt) {
     evt.preventDefault();
 
-    const nameInput = document.querySelector('.popup__item');
+    const nameInput = document.querySelector('.popup__item_name');
     const jobInput = document.querySelector('.popup__item_occupation');
 
     const name = document.querySelector('.profile__name');
