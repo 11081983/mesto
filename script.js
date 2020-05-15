@@ -1,4 +1,3 @@
-
 const element = document.querySelector('.profile__edit-button');
 const popup = document.querySelector('.popup');
 const button = document.querySelector('.popup__toggle');
