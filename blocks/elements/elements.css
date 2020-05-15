@@ -7,7 +7,7 @@
     grid-gap: 18px;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 950px) {
     .elements {
         margin: 50px 19px 0 19px;
     }

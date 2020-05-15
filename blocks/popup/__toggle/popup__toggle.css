@@ -1,8 +1,17 @@
 .popup__toggle {
+    width: 40px;
+    height: 40px;
     margin-right: -460px;
-    margin-bottom: -15px;
+    margin-bottom: -5px;
     background: none;
     border: none;
+    background-image: url(../../../images/CloseIcon.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.popup__toggle:hover {
+    opacity: 0.6;
 }
 
 @media screen and (max-width: 620px) {

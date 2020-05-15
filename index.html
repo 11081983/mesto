@@ -10,22 +10,7 @@
 
 <body>
     <div class="page">
-        <section class="popup">
-            <div class="form">
-                <button type="reset" class="popup__toggle">
-                    <img class="popup__toggle-image" src="images/CloseIcon.svg" alt="Кнопка закрытия">
-                </button>
-                <form action="URL" class="popup__container">
-                    <h2 class="popup__heading">Редактировать профиль</h2>
-                    <fieldset class="popup__input-container">
-                        <input type="text" name="name" class="popup__item popup__item_name" value="Жак-Ив Кусто">
-                        <input type="text" name="job" class="popup__item popup__item_occupation"
-                            value="Исследователь океана">
-                        <button type="submit" class="popup__button">Сохранить</button>
-                    </fieldset>
-                </form>
-            </div>
-        </section>
+        
         <header class="header">
             <img class="header__logo" src="images/logo.svg" alt="логотип Место и Россия">
         </header>
@@ -36,16 +21,12 @@
                     <div class="profile__info">
                         <div class="profile__main-string">
                             <h1 class="profile__name">Жак-Ив Кусто</h1>
-                            <button type="button" class="profile__edit-button">
-                                <img src="images/VectorEditButton.svg" alt="Редактирование профиля">
-                            </button>
+                            <button type="button" class="profile__edit-button"></button>
                         </div>
                         <p class="profile__occupation">Исследователь океана</p>
                     </div>
                 </div>
                 <button type="button" class="profile__add-button">
-                    <img class="profile__button-img" src="images/VectorAddButton.svg"
-                        alt="Добавление профиля пользователя">
                 </button>
             </section>
             <section class="elements">
@@ -96,6 +77,20 @@
         <footer class="footer">
             <p class="footer__text">&#169; 2020 Mesto Russia</p>
         </footer>
+        <section class="popup">
+            <div class="form">
+                <button type="reset" class="popup__toggle"></button>
+                <form action="URL" name="userdata" class="popup__container">
+                    <h2 class="popup__heading">Редактировать профиль</h2>
+                    <fieldset class="popup__input-container">
+                        <input type="text" name="name" class="popup__item popup__item_name" value="Жак-Ив Кусто">
+                        <input type="text" name="job" class="popup__item popup__item_occupation"
+                            value="Исследователь океана">
+                        <button type="submit" class="popup__button">Сохранить</button>
+                    </fieldset>
+                </form>
+            </div>
+        </section>
     </div>
     <script src="script.js"></script>
 </body>
