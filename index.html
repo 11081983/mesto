@@ -88,6 +88,8 @@
         <footer class="footer">
             <p class="footer__text">&#169; 2020 Mesto Russia</p>
         </footer>
+
+        
         <section class="popup">
             <div class="form">
                 <button type="reset" class="popup__toggle"></button>
@@ -102,6 +104,34 @@
                 </form>
             </div>
         </section>
+
+        <section class="popup popup__card">
+            <div class="form">
+                <button type="reset" class="popup__toggle popup__toggle_card"></button>
+                <form action="URL" name="form_card" class="popup__container popup__container_card">
+                    <h2 class="popup__heading">Новое место</h2>
+                    <fieldset class="popup__input-container">
+                        <input type="text" name="name" class="popup__item popup__item_title" placeholder="Название" value="">
+                        <input type="text" name="job" class="popup__item popup__item_link" placeholder="Ссылка на картинку" value="">
+                        <button type="submit" class="popup__button">Создать</button>
+                    </fieldset>
+                </form>
+            </div>
+        </section>
+
+
+<!-- 
+        <section class="popup popup__card">
+            <form name="form__card" method="GET" action="#" class="popup__container form__card">
+              <button type="button" class="popup__close-button popup__close-button_card"></button>
+              <h2 class="popup__title">Новое место</h2>
+              <fieldset class="popup__inputs">
+                <input class="popup__input popup__input_title" type="text" placeholder="Название" value="">
+                <input class="popup__input popup__input_link" type="text" placeholder="Ссылка на картинку" value="">
+              </fieldset>
+              <button type="submit" class="popup__button">Создать</button>
+            </form>
+        </section> -->
     </div>
     <script src="script.js"></script>
 </body>

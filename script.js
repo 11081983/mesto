@@ -41,12 +41,47 @@ function addCard (name,link) {
     const card = cardTemplate.cloneNode(true); //делаем клона карточки
     card.querySelector('.element__pic').src = link; // ссылка на фото
     card.querySelector('.element__name').textContent = name; // название карточки
-    elementContainer.append(card); // добавляем элемент в DOM
-
+    elementContainer.prepend(card); // добавляем элемент в DOM
+    return card;
 }
+
+
 initialCards.forEach( function (item) {
     addCard(item.name, item.link);
-});
+});  //проходим по массиву и вставляем карточки
+
+
+const element_card = document.querySelector('.profile__add-button');
+const popup__card = document.querySelector('.popup__card'); 
+const button_card = document.querySelector('.popup__toggle_card');
+function cardClick() {     // функция открытия попапа для добавления карточки
+    if (!popup__card.classList.contains('popup_opened')) {
+        popup__card.classList.add('popup_opened');}
+               
+        else {
+        popup__card.classList.remove('popup_opened');
+           
+        }
+       }
+    element_card.addEventListener('click', cardClick);
+    button_card.addEventListener('click', cardClick);
+
+
+// функция добавления карточки пользователем:
+let popupCardTitle = document.querySelector('.popup__item_title'); //находим поле названия 
+let popupCardLink = document.querySelector('.popup__item_link'); //находим поле ссылки 
+const formCard = document.querySelector('.popup__container_card'); //форма карточек
+
+
+
+function addCardNew(e) {
+    e.preventDefault();
+          const card = addCard(popupCardTitle.value, popupCardLink.value);
+          elementContainer.prepend(card);
+    cardClick();
+};
+formCard.addEventListener("submit", addCardNew);
+
 
     // function closeClick() {
     //     if (!popup.classList.contains('popup_opened')) {
@@ -81,5 +116,21 @@ button.addEventListener('click', closeClick);
 formElement.addEventListener('submit', formSubmitHandler);
 
 
+// функция добавления лайка
+// const buttonLike  = document.querySelectorAll('.element__like-button');
+// console.log(buttonLike);
+// buttonLike.forEach(function() {addEventListener('click', function (evt) {
+//   evt.target.classList.toggle('element__like-button_active');}
 
+// }));
 
+function makeLove(evt) {
+    evt.target.classList.toggle('element__like-button_active');
+}
+
+function addListener(elem) {
+    elem.addEventListener('click', makeLove);
+}
+
+const buttonLike  = document.querySelectorAll('.element__like-button');
+buttonLike.forEach(addListener);

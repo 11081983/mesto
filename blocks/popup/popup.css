@@ -4,6 +4,13 @@
 @import url(./__item/popup__item.css);
 @import url(./__button/popup__button.css);
 @import url(./__heading/popup__heading.css);
+@import url(./__card/popup__card.css);
+@import url(./__toggle/_card/popup__togle_card.css);
+@import url(./__container/_card/popup__container_card.css);
+@import url(./__item/_title/popup__item_title.css);
+@import url(./__item/_link/popup__item_link.css);
+
+
 .popup {
     background: rgba( 0, 0, 0, 0.5);
     position: fixed;
