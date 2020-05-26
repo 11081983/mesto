@@ -116,14 +116,9 @@ button.addEventListener('click', closeClick);
 formElement.addEventListener('submit', formSubmitHandler);
 
 
+
+
 // функция добавления лайка
-// const buttonLike  = document.querySelectorAll('.element__like-button');
-// console.log(buttonLike);
-// buttonLike.forEach(function() {addEventListener('click', function (evt) {
-//   evt.target.classList.toggle('element__like-button_active');}
-
-// }));
-
 function makeLove(evt) {
     evt.target.classList.toggle('element__like-button_active');
 }
@@ -132,5 +127,21 @@ function addListener(elem) {
     elem.addEventListener('click', makeLove);
 }
 
-const buttonLike  = document.querySelectorAll('.element__like-button');
+const buttonLike = document.querySelectorAll('.element__like-button');
 buttonLike.forEach(addListener);
+
+// функция удаления картинки
+
+const deletePlace = document.querySelectorAll('.element__delete');
+
+deletePlace.forEach(function (ele) {
+    ele.addEventListener('click', function (event) {
+    event.target.closest('.element').remove()
+    
+   }) 
+})
+
+
+
+
+

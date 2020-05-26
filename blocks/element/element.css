@@ -2,10 +2,13 @@
 @import url(./__like-button/element__like-button.css);
 @import url(./__name/element__name.css);
 @import url(./__pic/element__pic.css);
+@import url(./__delete/element__delete.css);
 
 .element {
     background: #FFFFFF;
     border-radius: 10px;
     overflow: hidden;
+    position: relative;
+   
    
 }
