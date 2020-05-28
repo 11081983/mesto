@@ -9,6 +9,12 @@
 @import url(./__container/_card/popup__container_card.css);
 @import url(./__item/_title/popup__item_title.css);
 @import url(./__item/_link/popup__item_link.css);
+@import url(./__image/popup__image.css);
+@import url(./__imgopen/popup__imgopen.css);
+@import url(./__toggle/_img/popup__toggle_img.css);
+@import url(./__nameopen/popup__nameopen.css);
+
+
 
 
 .popup {
