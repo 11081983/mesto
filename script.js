@@ -52,9 +52,9 @@ function addCard(name, link) {
     const elementPic = card.querySelector('.element__pic'); // нашли в карточке картинку
     elementPic.src = link; // ссылка на фото
     card.querySelector('.element__name').textContent = name; // название карточки
-    
+
     elementContainer.prepend(card); // добавляем элемент в DOM
-  
+
 
     elementPic.addEventListener('click', function (evt) { //повесили слушателя на картинку
         imagePopup.classList.toggle('popup_opened'); // при клике добавляем класс открывая попап
@@ -63,22 +63,21 @@ function addCard(name, link) {
 
     });
 
-   // функция добавления лайка
+    // функция добавления лайка
     const buttonLike = document.querySelector('.element__like-button');
-      buttonLike.addEventListener('click', function(elem) {
-        elem.target.classList.add('element__like-button_active')
-       
+    buttonLike.addEventListener('click', function (elem) {
+        elem.target.classList.toggle('element__like-button_active')
+
     })
 
-   
-// функция удаления картинки
+
+    // функция удаления картинки
     const deletePlace = document.querySelector('.element__delete');
     deletePlace.addEventListener('click', function (event) {
-            event.target.closest('.element').remove()
-            console.log (deletePlace);
-        })
-    
-    
+        event.target.closest('.element').remove()
+        console.log(deletePlace);
+    })
+
 }
 
 //проходим по массиву и вставляем карточки
@@ -110,8 +109,8 @@ function addCardNew(e) {
     const card = addCard(popupCardTitle.value, popupCardLink.value);
     elementContainer.append(card);
     cardClick();
-    
-    
+
+
 };
 formCard.addEventListener("submit", addCardNew);
 
@@ -140,28 +139,7 @@ element.addEventListener('click', closeClick);
 button.addEventListener('click', closeClick);
 formElement.addEventListener('submit', formSubmitHandler);
 
-// функция добавления лайка
 
-// function makeLove(evt) {
-//     evt.target.classList.toggle('element__like-button_active');
-// }
-
-// function addListener(elem) {
-//     elem.addEventListener('click', makeLove);
-// }
-
-// const buttonLike = document.querySelectorAll('.element__like-button');
-// buttonLike.forEach(addListener);
-
-// функция удаления картинки
-
-// const deletePlace = document.querySelectorAll('.element__delete');
-// deletePlace.forEach(function (ele) {
-//     ele.addEventListener('click', function (event) {
-//         event.target.closest('.element').remove()
-
-//     })
-// })
 
 // функция закрытия увеличенной картинки
 

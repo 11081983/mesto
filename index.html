@@ -29,68 +29,26 @@
                 </button>
             </section>
             <section class="elements">
-                
-                <!-- <div class="element">
-                    <img class="element__pic" src="images/kirill-pershin-1088404-unsplash.jpg" alt="фото Карачаевска">
-                    <div class="element__data">
-                        <p class="element__name">Карачаевск</p>
-                        <button type="button" class="element__like-button"></button>
-                    </div>
-                </div>
-                <div class="element">
-                    <img class="element__pic" src="images/Elbrus.png" alt="фото Эльбруса">
-                    <div class="element__data">
-                        <p class="element__name">Гора Эльбрус</p>
-                        <button type="button" class="element__like-button"></button>
-                    </div>
-                </div>
-                <div class="element">
-                    <img class="element__pic" src="images/Dombai.png" alt="фото Домбая">
-                    <div class="element__data">
-                        <p class="element__name">Домбай</p>
-                        <button type="button" class="element__like-button"></button>
-                    </div>
-                </div>
-                <div class="element">
-                    <img class="element__pic" src="images/Tikhvin.jpg" alt="фото Тихвина">
-                    <div class="element__data">
-                        <p class="element__name">Тихвин</p>
-                        <button type="button" class="element__like-button"></button>
-                    </div>
-                </div>
-                <div class="element">
-                    <img class="element__pic" src="images/Nchk.jpg" alt="фото Новочеркасска">
-                    <div class="element__data">
-                        <p class="element__name">Новочеркасск</p>
-                        <button type="button" class="element__like-button"></button>
-                    </div>
-                </div>
-                <div class="element">
-                    <img class="element__pic" src="images/Spb.jpg" alt="фото Санкт-Петербурга">
-                    <div class="element__data">
-                        <p class="element__name">Санкт-Петербург</p>
-                        <button type="button" class="element__like-button"></button>
-                    </div>
-                </div> -->
+
                 <template class="element-template">
                     <div class="element">
-                       <button class="element__delete" type="button"></button>
-                      <img src="" alt="Фото" class="element__pic">
-                      <div class="element__data">
-                        <p class="element__name"></p>
-                        <button class="element__like-button" type="button"></button>
-                      </div>
+                        <button class="element__delete" type="button"></button>
+                        <img src="" alt="Фото" class="element__pic">
+                        <div class="element__data">
+                            <p class="element__name"></p>
+                            <button class="element__like-button" type="button"></button>
+                        </div>
                     </div>
-              
-                  </template>
+
+                </template>
             </section>
-          
+
         </main>
         <footer class="footer">
             <p class="footer__text">&#169; 2020 Mesto Russia</p>
         </footer>
 
-        
+
         <section class="popup">
             <div class="form">
                 <button type="reset" class="popup__toggle"></button>
@@ -98,8 +56,7 @@
                     <h2 class="popup__heading">Редактировать профиль</h2>
                     <fieldset class="popup__input-container">
                         <input type="text" name="name" class="popup__item popup__item_name" value=" ">
-                        <input type="text" name="job" class="popup__item popup__item_occupation"
-                            value=" ">
+                        <input type="text" name="job" class="popup__item popup__item_occupation" value=" ">
                         <button type="submit" class="popup__button">Сохранить</button>
                     </fieldset>
                 </form>
@@ -112,8 +69,10 @@
                 <form action="URL" name="form_card" class="popup__container popup__container_card">
                     <h2 class="popup__heading">Новое место</h2>
                     <fieldset class="popup__input-container">
-                        <input type="text" name="name" class="popup__item popup__item_title" placeholder="Название" value="">
-                        <input type="text" name="job" class="popup__item popup__item_link" placeholder="Ссылка на картинку" value="">
+                        <input type="text" name="name" class="popup__item popup__item_title" placeholder="Название"
+                            value="">
+                        <input type="text" name="job" class="popup__item popup__item_link"
+                            placeholder="Ссылка на картинку" value="">
                         <button type="submit" class="popup__button">Создать</button>
                     </fieldset>
                 </form>

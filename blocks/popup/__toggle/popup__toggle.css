@@ -17,6 +17,6 @@
 @media screen and (max-width: 620px) {
     .popup__toggle {
         margin-right: -270px;
-        margin-bottom: -15px;
+        margin-bottom: -8px;
     }
 }
