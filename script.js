@@ -45,26 +45,33 @@ const initialCards = [
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
 ];
+// функция открытия модального окна
+function togglePopup(elem) {
+    elem.classList.toggle('popup_opened');
+    }
+
 // Функция добавления картинки и открытия попапа с картинкой
 
-function addCard(name, link) {
+
+
+function createCard(name, link) {
     const card = cardTemplate.cloneNode(true); //делаем клона карточки
     const elementPic = card.querySelector('.element__pic'); // нашли в карточке картинку
     elementPic.src = link; // ссылка на фото
     card.querySelector('.element__name').textContent = name; // название карточки
 
-    elementContainer.prepend(card); // добавляем элемент в DOM
+    
 
 
     elementPic.addEventListener('click', function (evt) { //повесили слушателя на картинку
-        imagePopup.classList.toggle('popup_opened'); // при клике добавляем класс открывая попап
+        togglePopup(imagePopup); // при клике добавляем класс открывая попап
         popupImageOpen.src = link;  // вставляем в попап картинку на весь экран, по которой кликнули
         popupName.textContent = name;   // вставляем надпись от картинки по которой кликнули
 
     });
 
     // функция добавления лайка
-    const buttonLike = document.querySelector('.element__like-button');
+    const buttonLike = card.querySelector('.element__like-button');
     buttonLike.addEventListener('click', function (elem) {
         elem.target.classList.toggle('element__like-button_active')
 
@@ -72,19 +79,17 @@ function addCard(name, link) {
 
 
     // функция удаления картинки
-    const deletePlace = document.querySelector('.element__delete');
+    const deletePlace = card.querySelector('.element__delete');
     deletePlace.addEventListener('click', function (event) {
         event.target.closest('.element').remove()
-        console.log(deletePlace);
+        
     })
-
+    return card;
 }
 
 //проходим по массиву и вставляем карточки
+initialCards.forEach(card => elementContainer.prepend(createCard(card.name, card.link)));
 
-initialCards.forEach(function (item) {
-    addCard(item.name, item.link);
-});
 
 // функция открытия попапа для добавления карточки
 
@@ -106,8 +111,8 @@ buttonCard.addEventListener('click', cardClick);
 
 function addCardNew(e) {
     e.preventDefault();
-    const card = addCard(popupCardTitle.value, popupCardLink.value);
-    elementContainer.append(card);
+    const card = createCard(popupCardTitle.value, popupCardLink.value);
+    elementContainer.prepend(card);
     cardClick();
 
 
@@ -143,7 +148,7 @@ formElement.addEventListener('submit', formSubmitHandler);
 
 // функция закрытия увеличенной картинки
 
-buttonImg.addEventListener('click', function () { // закрываем окно с увеличенной картинкой
+buttonImg.addEventListener('click', function () { 
     imagePopup.classList.toggle('popup_opened');
 })
 
