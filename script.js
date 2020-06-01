@@ -45,44 +45,39 @@ const initialCards = [
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
 ];
+
 // функция открытия модального окна
 function togglePopup(elem) {
     elem.classList.toggle('popup_opened');
-    }
+}
 
 // Функция добавления картинки и открытия попапа с картинкой
-
-
 
 function createCard(name, link) {
     const card = cardTemplate.cloneNode(true); //делаем клона карточки
     const elementPic = card.querySelector('.element__pic'); // нашли в карточке картинку
     elementPic.src = link; // ссылка на фото
+    elementPic.alt = name;
     card.querySelector('.element__name').textContent = name; // название карточки
 
-    
-
-
+    // открываем картинку на экран
     elementPic.addEventListener('click', function (evt) { //повесили слушателя на картинку
         togglePopup(imagePopup); // при клике добавляем класс открывая попап
         popupImageOpen.src = link;  // вставляем в попап картинку на весь экран, по которой кликнули
         popupName.textContent = name;   // вставляем надпись от картинки по которой кликнули
-
+        popupImageOpen.alt = name;
     });
 
     // функция добавления лайка
     const buttonLike = card.querySelector('.element__like-button');
     buttonLike.addEventListener('click', function (elem) {
         elem.target.classList.toggle('element__like-button_active')
-
     })
-
 
     // функция удаления картинки
     const deletePlace = card.querySelector('.element__delete');
     deletePlace.addEventListener('click', function (event) {
         event.target.closest('.element').remove()
-        
     })
     return card;
 }
@@ -93,19 +88,8 @@ initialCards.forEach(card => elementContainer.prepend(createCard(card.name, card
 
 // функция открытия попапа для добавления карточки
 
-function cardClick() {
-    if (!cardPopup.classList.contains('popup_opened')) {
-        cardPopup.classList.add('popup_opened');
-    }
-
-    else {
-        cardPopup.classList.remove('popup_opened');
-
-    }
-}
-elementСard.addEventListener('click', cardClick);
-buttonCard.addEventListener('click', cardClick);
-
+elementСard.addEventListener('click', () => togglePopup(cardPopup));
+buttonCard.addEventListener('click', () => togglePopup(cardPopup));
 
 // функция добавления карточки пользователем: 
 
@@ -113,21 +97,16 @@ function addCardNew(e) {
     e.preventDefault();
     const card = createCard(popupCardTitle.value, popupCardLink.value);
     elementContainer.prepend(card);
-    cardClick();
-
-
-};
+    togglePopup(cardPopup);
+}
 formCard.addEventListener("submit", addCardNew);
 
 // функция открытия профиля
 
 function closeClick() {
-    if (!popup.classList.contains('popup_opened')) {
-        nameInput.value = name.textContent;
-        jobInput.value = job.textContent;
-    }
-    popup.classList.toggle('popup_opened');
-
+    nameInput.value = name.textContent;
+    jobInput.value = job.textContent;
+    togglePopup(popup);
 }
 
 // функция сохранения профиля
@@ -136,19 +115,16 @@ function formSubmitHandler(evt) {
     evt.preventDefault();
     name.textContent = nameInput.value;
     job.textContent = jobInput.value;
-
-    closeClick();
+    togglePopup(popup);
 }
 
 element.addEventListener('click', closeClick);
-button.addEventListener('click', closeClick);
+button.addEventListener('click', () => togglePopup(popup));
 formElement.addEventListener('submit', formSubmitHandler);
-
-
 
 // функция закрытия увеличенной картинки
 
-buttonImg.addEventListener('click', function () { 
-    imagePopup.classList.toggle('popup_opened');
-})
+buttonImg.addEventListener('click', () => togglePopup(imagePopup));
+
+
 
