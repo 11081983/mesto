@@ -55,9 +55,11 @@
                 <form action="URL" name="userdata" class="popup__container">
                     <h2 class="popup__heading">Редактировать профиль</h2>
                     <fieldset class="popup__input-container">
-                        <input type="text" name="name" class="popup__item popup__item_name" value=" ">
-                        <input type="text" name="job" class="popup__item popup__item_occupation" value=" ">
-                        <button type="submit" class="popup__button">Сохранить</button>
+                        <input type="text" id="name-input" name="name" pattern="[A-Za-zА-Яа-яЁё -]{2,40}" required class="popup__item popup__item_name" value="">
+                        <span id="name-input-error" class="error"></span>
+                        <input type="text" id="occupation-input" name="job" minlength="2" maxlength="200" required class="popup__item popup__item_occupation" value="">
+                        <span id="occupation-input-error" class="error"></span>
+                        <button type="submit" class="popup__button popup__button_disabled">Сохранить</button>
                     </fieldset>
                 </form>
             </div>
@@ -69,11 +71,11 @@
                 <form action="URL" name="form_card" class="popup__container popup__container_card">
                     <h2 class="popup__heading">Новое место</h2>
                     <fieldset class="popup__input-container">
-                        <input type="text" name="name" class="popup__item popup__item_title" placeholder="Название"
+                        <input type="text" name="name" minlength="1" maxlength="30" required class="popup__item popup__item_title" placeholder="Название"
                             value="">
-                        <input type="text" name="job" class="popup__item popup__item_link"
+                        <input type="url" name="job" required class="popup__item popup__item_link"
                             placeholder="Ссылка на картинку" value="">
-                        <button type="submit" class="popup__button">Создать</button>
+                        <button type="submit" class="popup__button popup__button_disabled">Создать</button>
                     </fieldset>
                 </form>
             </div>
@@ -90,6 +92,7 @@
 
     </div>
     <script src="script.js"></script>
+    <script src="validate.js"></script>
 </body>
 
 </html>
