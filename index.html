@@ -52,14 +52,14 @@
         <section class="popup">
             <div class="form">
                 <button type="reset" class="popup__toggle"></button>
-                <form action="URL" name="userdata" class="popup__container">
+                <form action="URL" name="userdata" class="popup__container" novalidate>
                     <h2 class="popup__heading">Редактировать профиль</h2>
                     <fieldset class="popup__input-container">
                         <input type="text" id="name-input" name="name" pattern="[A-Za-zА-Яа-яЁё -]{2,40}" required class="popup__item popup__item_name" value="">
                         <span id="name-input-error" class="error"></span>
                         <input type="text" id="occupation-input" name="job" minlength="2" maxlength="200" required class="popup__item popup__item_occupation" value="">
                         <span id="occupation-input-error" class="error"></span>
-                        <button type="submit" class="popup__button popup__button_disabled">Сохранить</button>
+                        <button type="submit" disabled class="popup__button popup__button_disabled">Сохранить</button>
                     </fieldset>
                 </form>
             </div>
@@ -68,15 +68,17 @@
         <section class="popup popup_type_card">
             <div class="form">
                 <button type="reset" class="popup__toggle popup__toggle_card"></button>
-                <form action="URL" name="form_card" class="popup__container popup__container_card">
+                <form action="URL" name="form_card" class="popup__container popup__container_card" novalidate>
                     <h2 class="popup__heading">Новое место</h2>
                     <fieldset class="popup__input-container">
-                        <input type="text" name="name" minlength="1" maxlength="30" required class="popup__item popup__item_title" placeholder="Название"
+                        <input type="text" name="name" id="title-input" minlength="1" maxlength="30" required class="popup__item popup__item_title" placeholder="Название"
                             value="">
-                        <input type="url" name="job" required class="popup__item popup__item_link"
+                            <span id="title-input-error" class="error"></span>
+                        <input type="url" name="job" id="link-input" required class="popup__item popup__item_link"
                             placeholder="Ссылка на картинку" value="">
-                        <button type="submit" class="popup__button popup__button_disabled">Создать</button>
-                    </fieldset>
+                            <span id="link-input-error" class="error"></span>
+                        <button type="submit" disabled class="popup__button popup__button_disabled">Создать</button>
+                    </fieldset> 
                 </form>
             </div>
         </section>
@@ -91,8 +93,9 @@
 
 
     </div>
-    <script src="script.js"></script>
     <script src="validate.js"></script>
+    <script src="script.js"></script>
+    
 </body>
 
 </html>

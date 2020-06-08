@@ -1,11 +1,4 @@
-enableValidation({
-    formSelector: '.form',
-    inputSelector: '.popup__item',
-    submitButtonSelector: '.popup__button',
-    inactiveButtonClass: 'popup__button_disabled',
-    inputErrorClass: 'popup__item_type_error',
-    errorClass: 'popup__error_visible'
-});
+
 function enableValidation(options) {
     // находим формы
     const formElements = Array.from(document.querySelectorAll(options.formSelector));
@@ -22,26 +15,39 @@ function enableValidation(options) {
             input.addEventListener('input', e => handleInput(e, options.inputErrorClass))
         })
 
-        formElement.addEventListener('input', () => handleFormInput(formElement, submitButton, options.inactiveButtonClass))
+       
 
         // возможно, не имеет смысл добавлять этот обработчик в рамках enableValidation
         formElement.addEventListener('submit', evt => {
             // обработка сабмита
             evt.preventDefault()
         })
+         // включаем / выключаем кнопку в зависимости от валидности формы
+        formElement.addEventListener('input', () => {
+            const hasErrors = !formElement.checkValidity();
+            submitButton.disabled = hasErrors;
+            submitButton.classList.toggle(
+                options.inactiveButtonClass,
+                // если второй аргумент true -- добавляем, если false -- удаляем класс
+                hasErrors
+            )   
+        })
     })
+
+
+
 }
 
-function handleFormInput(formElement, submitButton, inactiveButtonClass) {
-    // включаем / выключаем кнопку в зависимости от валидности формы
-    const hasErrors = !formElement.checkValidity();
-    submitButton.disabled = hasErrors;
-    submitButton.classList.toggle(
-        inactiveButtonClass,
-        // если второй аргумент true -- добавляем, если false -- удаляем класс
-        hasErrors
-    )
-}
+// function handleFormInput(formElement, submitButton, inactiveButtonClass) {
+//     // включаем / выключаем кнопку в зависимости от валидности формы
+//     const hasErrors = !formElement.checkValidity();
+//     submitButton.disabled = hasErrors;
+//     submitButton.classList.toggle(
+//         inactiveButtonClass,
+//         // если второй аргумент true -- добавляем, если false -- удаляем класс
+//         hasErrors
+//     )
+// }
 
 
 function handleInput(evt, errCls) {

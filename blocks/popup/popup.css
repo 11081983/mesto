@@ -13,6 +13,9 @@
 @import url(./__imgopen/popup__imgopen.css);
 @import url(./__toggle/_img/popup__toggle_img.css);
 @import url(./__nameopen/popup__nameopen.css);
+@import url(./__item/_type/popup__item_type_error.css);
+@import url(./__button/_disabled/popup__button_disabled.css);
+
 .popup {
     background: rgba( 0, 0, 0, 0.5);
     position: fixed;
