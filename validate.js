@@ -26,7 +26,7 @@ function enableValidation(options) {
 }
 
  // включаем / выключаем кнопку Submit в зависимости от валидности формы
- 
+
 function handleFormInput(formElement, submitButton, inactiveButtonClass) {
     const hasErrors = !formElement.checkValidity();
     submitButton.disabled = hasErrors;
