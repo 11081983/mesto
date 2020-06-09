@@ -54,11 +54,12 @@ const formValidationOptions = {
     inputErrorClass: 'popup__item_type_error',
     errorClass: 'popup__error_visible'
 }
-enableValidation(formValidationOptions); 
+enableValidation(formValidationOptions);
 
 // функция открытия модального окна
 function togglePopup(elem) {
     elem.classList.toggle('popup_opened');
+
 }
 
 // Функция добавления картинки и открытия попапа с картинкой
@@ -135,6 +136,41 @@ formElement.addEventListener('submit', formSubmitHandler);
 // функция закрытия увеличенной картинки
 
 buttonImg.addEventListener('click', () => togglePopup(imagePopup));
+
+// закрытие от Escape
+// function escHandler(evt) {
+//     if (evt.key === 'Escape') {
+//       document.querySelector('.popup_opened').classList.remove('popup_opened'); //ещем класс , если он есть, то удаляем его
+//       document.removeEventListener('keydown', escHandler); //удаляем слушатель
+//     }
+//   };
+
+//закрытие по клику на оверлэй
+const popupOverlay = Array.from(document.querySelectorAll('.popup'));
+popupOverlay.forEach(elem => {
+    elem.addEventListener('click', (e) => {
+        if (e.target.classList.contains('popup')){
+            e.target.classList.remove('popup_opened');
+        }
+    })
+})
+
+
+
+
+//закрытие escape
+function escHandler(evt) {
+    const opened = document.querySelector('.popup_opened')
+    if (evt.key === 'Escape') {
+        if (opened) 
+            togglePopup(opened);
+            evt.target.removeEventListener('keydown', escHandler);
+                    }
+                  
+                    
+    }
+
+document.addEventListener('keydown', escHandler);
 
 
 
