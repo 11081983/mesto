@@ -15,39 +15,27 @@ function enableValidation(options) {
             input.addEventListener('input', e => handleInput(e, options.inputErrorClass))
         })
 
-       
-
-        // возможно, не имеет смысл добавлять этот обработчик в рамках enableValidation
+        //кнопка сабмита 
+        formElement.addEventListener('input', () => handleFormInput(formElement, submitButton, options.inactiveButtonClass))
+        // обработка сабмита
         formElement.addEventListener('submit', evt => {
-            // обработка сабмита
             evt.preventDefault()
         })
-         // включаем / выключаем кнопку в зависимости от валидности формы
-        formElement.addEventListener('input', () => {
-            const hasErrors = !formElement.checkValidity();
-            submitButton.disabled = hasErrors;
-            submitButton.classList.toggle(
-                options.inactiveButtonClass,
-                // если второй аргумент true -- добавляем, если false -- удаляем класс
-                hasErrors
-            )   
-        })
+  
     })
-
-
-
 }
 
-// function handleFormInput(formElement, submitButton, inactiveButtonClass) {
-//     // включаем / выключаем кнопку в зависимости от валидности формы
-//     const hasErrors = !formElement.checkValidity();
-//     submitButton.disabled = hasErrors;
-//     submitButton.classList.toggle(
-//         inactiveButtonClass,
-//         // если второй аргумент true -- добавляем, если false -- удаляем класс
-//         hasErrors
-//     )
-// }
+ // включаем / выключаем кнопку Submit в зависимости от валидности формы
+ 
+function handleFormInput(formElement, submitButton, inactiveButtonClass) {
+    const hasErrors = !formElement.checkValidity();
+    submitButton.disabled = hasErrors;
+    submitButton.classList.toggle(
+        inactiveButtonClass,
+        // если второй аргумент true -- добавляем, если false -- удаляем класс
+        hasErrors
+    )
+}
 
 
 function handleInput(evt, errCls) {

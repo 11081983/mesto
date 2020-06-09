@@ -55,9 +55,11 @@
                 <form action="URL" name="userdata" class="popup__container" novalidate>
                     <h2 class="popup__heading">Редактировать профиль</h2>
                     <fieldset class="popup__input-container">
-                        <input type="text" id="name-input" name="name" pattern="[A-Za-zА-Яа-яЁё -]{2,40}" required class="popup__item popup__item_name" value="">
+                        <input type="text" id="name-input" name="name" pattern="[A-Za-zА-Яа-яЁё -]{2,40}" required
+                            class="popup__item popup__item_name" value="">
                         <span id="name-input-error" class="error"></span>
-                        <input type="text" id="occupation-input" name="job" minlength="2" maxlength="200" required class="popup__item popup__item_occupation" value="">
+                        <input type="text" id="occupation-input" name="job" minlength="2" maxlength="200" required
+                            class="popup__item popup__item_occupation" value="">
                         <span id="occupation-input-error" class="error"></span>
                         <button type="submit" disabled class="popup__button popup__button_disabled">Сохранить</button>
                     </fieldset>
@@ -71,14 +73,14 @@
                 <form action="URL" name="form_card" class="popup__container popup__container_card" novalidate>
                     <h2 class="popup__heading">Новое место</h2>
                     <fieldset class="popup__input-container">
-                        <input type="text" name="name" id="title-input" minlength="1" maxlength="30" required class="popup__item popup__item_title" placeholder="Название"
-                            value="">
-                            <span id="title-input-error" class="error"></span>
+                        <input type="text" name="name" id="title-input" minlength="1" maxlength="30" required
+                            class="popup__item popup__item_title" placeholder="Название" value="">
+                        <span id="title-input-error" class="error"></span>
                         <input type="url" name="job" id="link-input" required class="popup__item popup__item_link"
                             placeholder="Ссылка на картинку" value="">
-                            <span id="link-input-error" class="error"></span>
+                        <span id="link-input-error" class="error"></span>
                         <button type="submit" disabled class="popup__button popup__button_disabled">Создать</button>
-                    </fieldset> 
+                    </fieldset>
                 </form>
             </div>
         </section>
@@ -95,7 +97,7 @@
     </div>
     <script src="validate.js"></script>
     <script src="script.js"></script>
-    
+
 </body>
 
 </html>
