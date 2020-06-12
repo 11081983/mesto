@@ -30,17 +30,6 @@
             </section>
             <section class="elements">
 
-                <template class="element-template">
-                    <div class="element">
-                        <button class="element__delete" type="button"></button>
-                        <img src="" alt="" class="element__pic">
-                        <div class="element__data">
-                            <p class="element__name"></p>
-                            <button class="element__like-button" type="button"></button>
-                        </div>
-                    </div>
-
-                </template>
             </section>
 
         </main>
@@ -49,13 +38,13 @@
         </footer>
 
 
-        <section class="popup">
+        <div class="popup">
             <div class="form">
                 <button type="reset" class="popup__toggle"></button>
                 <form action="URL" name="userdata" class="popup__container" novalidate>
                     <h2 class="popup__heading">Редактировать профиль</h2>
                     <fieldset class="popup__input-container">
-                        <input type="text" id="name-input" name="name" pattern="[A-Za-zА-Яа-яЁё -]{2,40}" required
+                        <input type="text" id="name-input" name="name" minlength="2" maxlength="40"pattern="[A-Za-zА-Яа-яЁё -]" required
                             class="popup__item popup__item_name" value="">
                         <span id="name-input-error" class="error"></span>
                         <input type="text" id="occupation-input" name="job" minlength="2" maxlength="200" required
@@ -65,9 +54,9 @@
                     </fieldset>
                 </form>
             </div>
-        </section>
+        </div>
 
-        <section class="popup popup_type_card">
+        <div class="popup popup_type_card">
             <div class="form">
                 <button type="reset" class="popup__toggle popup__toggle_card"></button>
                 <form action="URL" name="form_card" class="popup__container popup__container_card" novalidate>
@@ -83,18 +72,29 @@
                     </fieldset>
                 </form>
             </div>
-        </section>
+        </div>
 
-        <section class="popup popup_type_image">
+        <div class="popup popup_type_image">
             <div class="imagegroup">
                 <button type="reset" class="popup__toggle popup__toggle_img"></button>
                 <img src="" alt="" class="popup__imgopen">
                 <p class="popup__nameopen"></p>
             </div>
-        </section>
+        </div>
 
 
     </div>
+    <template class="element-template">
+        <div class="element">
+            <button class="element__delete" type="button"></button>
+            <img src="" alt="" class="element__pic">
+            <div class="element__data">
+                <p class="element__name"></p>
+                <button class="element__like-button" type="button"></button>
+            </div>
+        </div>
+
+    </template>
     <script src="validate.js"></script>
     <script src="script.js"></script>
 
