@@ -44,7 +44,7 @@
                 <form action="URL" name="userdata" class="popup__container" novalidate>
                     <h2 class="popup__heading">Редактировать профиль</h2>
                     <fieldset class="popup__input-container">
-                        <input type="text" id="name-input" name="name" minlength="2" maxlength="40"pattern="[A-Za-zА-Яа-яЁё -]" required
+                        <input type="text" id="name-input" name="name" pattern="^[A-Za-zА-Яа-яЁё\s-]+$"  minlength="2" maxlength="40" required
                             class="popup__item popup__item_name" value="">
                         <span id="name-input-error" class="error"></span>
                         <input type="text" id="occupation-input" name="job" minlength="2" maxlength="200" required
