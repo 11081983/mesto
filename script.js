@@ -4,7 +4,7 @@ const button = document.querySelector('.popup__toggle');
 const formElement = document.querySelector('.form');
 const nameInput = document.querySelector('.popup__item_name');
 const jobInput = document.querySelector('.popup__item_occupation');
-const name = document.querySelector('.profile__name');
+const profileName = document.querySelector('.profile__name');
 const job = document.querySelector('.profile__occupation');
 const elementContainer = document.querySelector('.elements');
 const cardTemplate = document.querySelector('.element-template').content.querySelector('.element');
@@ -72,7 +72,7 @@ function createCard(name, link) {
     card.querySelector('.element__name').textContent = name; // название карточки
 
     // открываем картинку на экран
-    elementPic.addEventListener('click', function (evt) { //повесили слушателя на картинку
+    elementPic.addEventListener('click', () => { //повесили слушателя на картинку
         togglePopup(imagePopup); // при клике добавляем класс открывая попап
         popupImageOpen.src = link;  // вставляем в попап картинку на весь экран, по которой кликнули
         popupName.textContent = name;   // вставляем надпись от картинки по которой кликнули
@@ -81,20 +81,20 @@ function createCard(name, link) {
 
     // функция добавления лайка
     const buttonLike = card.querySelector('.element__like-button');
-    buttonLike.addEventListener('click', function (elem) {
+    buttonLike.addEventListener('click', (elem) => {
         elem.target.classList.toggle('element__like-button_active')
     })
 
     // функция удаления картинки
     const deletePlace = card.querySelector('.element__delete');
-    deletePlace.addEventListener('click', function (event) {
+    deletePlace.addEventListener('click', (event) => {
         event.target.closest('.element').remove()
     })
     return card;
 }
 
 //проходим по массиву и вставляем карточки
-initialCards.forEach(card => elementContainer.prepend(createCard(card.name, card.link)));
+initialCards.forEach((card) => elementContainer.prepend(createCard(card.name, card.link)));
 
 
 // функция открытия попапа для добавления карточки
@@ -115,7 +115,7 @@ formCard.addEventListener("submit", addCardNew);
 // функция открытия профиля
 
 function closeClick() {
-    nameInput.value = name.textContent;
+    nameInput.value = profileName.textContent;
     jobInput.value = job.textContent;
     togglePopup(popup);
 }
@@ -124,7 +124,7 @@ function closeClick() {
 
 function formSubmitHandler(evt) {
     evt.preventDefault();
-    name.textContent = nameInput.value;
+    profileName.textContent = nameInput.value;
     job.textContent = jobInput.value;
     togglePopup(popup);
 }
@@ -140,8 +140,8 @@ buttonImg.addEventListener('click', () => togglePopup(imagePopup));
 
 //закрытие по клику на оверлэй
 
-const popupOverlay = Array.from(document.querySelectorAll('.popup'));
-popupOverlay.forEach(elem => {
+const popupList = Array.from(document.querySelectorAll('.popup'));
+popupList.forEach((elem) => {
     elem.addEventListener('click', (e) => {
         if (e.target.classList.contains('popup')) {
             e.target.classList.remove('popup_opened');
@@ -156,7 +156,8 @@ function escHandler(evt) {
     const opened = document.querySelector('.popup_opened')
     if (evt.key === 'Escape') {
         if (opened)
-            togglePopup(opened);
+        {    
+        togglePopup(opened)};
         evt.target.removeEventListener('keydown', escHandler);
     }
 }

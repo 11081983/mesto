@@ -11,17 +11,17 @@ function enableValidation(options) {
 
         // для всех инпутов
         const inputCheck = formElement.querySelector(options.inputSelector);
+       
+       //кнопка сабмита
+        inputCheck.addEventListener('input', () => handleFormInput(inputElements, submitButton, options.inactiveButtonClass))
+       
         inputElements.forEach(input => {
             // проверка валидности инпута
             input.addEventListener('input', e => {
                 handleInput(e, options.inputErrorClass);
                 handleFormInput(inputElements, submitButton, options.inactiveButtonClass)
             })
-
-
-            //кнопка сабмита 
-
-            inputCheck.addEventListener('input', () => handleFormInput(inputElements, submitButton, options.inactiveButtonClass))
+            
             // обработка сабмита
             formElement.addEventListener('submit', evt => {
                 evt.preventDefault();
