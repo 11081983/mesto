@@ -1,4 +1,4 @@
-// import {Card} from './Card.js';
+import {Card} from './Card.js';
 // import {FormValidator} from './FormValidator.js';
 import {initialCards} from './massive-cards.js';
 
@@ -23,6 +23,7 @@ const imagePopup = document.querySelector('.popup_type_image');
 const popupImageOpen = document.querySelector('.popup__imgopen');
 const popupName = document.querySelector('.popup__nameopen');
 const buttonImg = document.querySelector('.popup__toggle_img');
+
 
 // const initialCards = [
 //     {
@@ -69,37 +70,48 @@ function togglePopup(elem) {
 
 // Функция добавления картинки и открытия попапа с картинкой
 
-function createCard(name, link) {
-    const card = cardTemplate.cloneNode(true); //делаем клона карточки
-    const elementPic = card.querySelector('.element__pic'); // нашли в карточке картинку
-    elementPic.src = link; // ссылка на фото
-    elementPic.alt = name;
-    card.querySelector('.element__name').textContent = name; // название карточки
+// function createCard(name, link) {
+//     const card = cardTemplate.cloneNode(true); //делаем клона карточки
+//     const elementPic = card.querySelector('.element__pic'); // нашли в карточке картинку
+//     elementPic.src = link; // ссылка на фото
+//     elementPic.alt = name;
+//     card.querySelector('.element__name').textContent = name; // название карточки
 
-    // открываем картинку на экран
-    elementPic.addEventListener('click', () => { //повесили слушателя на картинку
-        togglePopup(imagePopup); // при клике добавляем класс открывая попап
-        popupImageOpen.src = link;  // вставляем в попап картинку на весь экран, по которой кликнули
-        popupName.textContent = name;   // вставляем надпись от картинки по которой кликнули
-        popupImageOpen.alt = name;
-    });
+//     // открываем картинку на экран
+//     elementPic.addEventListener('click', () => { //повесили слушателя на картинку
+//         togglePopup(imagePopup); // при клике добавляем класс открывая попап
+//         popupImageOpen.src = link;  // вставляем в попап картинку на весь экран, по которой кликнули
+//         popupName.textContent = name;   // вставляем надпись от картинки по которой кликнули
+//         popupImageOpen.alt = name;
+//     });
 
-    // функция добавления лайка
-    const buttonLike = card.querySelector('.element__like-button');
-    buttonLike.addEventListener('click', (elem) => {
-        elem.target.classList.toggle('element__like-button_active')
-    })
+//     // функция добавления лайка
+//     const buttonLike = card.querySelector('.element__like-button');
+//     buttonLike.addEventListener('click', (elem) => {
+//         elem.target.classList.toggle('element__like-button_active')
+//     })
 
-    // функция удаления картинки
-    const deletePlace = card.querySelector('.element__delete');
-    deletePlace.addEventListener('click', (event) => {
-        event.target.closest('.element').remove()
-    })
-    return card;
-}
+//     // функция удаления картинки
+//     const deletePlace = card.querySelector('.element__delete');
+//     deletePlace.addEventListener('click', (event) => {
+//         event.target.closest('.element').remove()
+//     })
+//     return card;
+// }
 
 //проходим по массиву и вставляем карточки
-initialCards.forEach((card) => elementContainer.prepend(createCard(card.name, card.link)));
+// initialCards.forEach((card) => elementContainer.prepend(createCard(card.name, card.link)));
+
+initialCards.forEach((item) => {
+  // Создадим экземпляр карточки
+  const card = new Card(item.name, item.link, '.element-template');
+  // Создаём карточку и возвращаем наружу
+  const cardElement = card.generateCard();
+  // Добавляем в DOM
+  elementContainer.append(cardElement);
+
+})
+
 
 
 // функция открытия попапа для добавления карточки
@@ -111,8 +123,11 @@ buttonCard.addEventListener('click', () => togglePopup(cardPopup));
 
 function addCardNew(e) {
     e.preventDefault();
-    const card = createCard(popupCardTitle.value, popupCardLink.value);
-    elementContainer.prepend(card);
+    const card = new Card(popupCardTitle.value, popupCardLink.value, '.element-template');
+    const cardElement = card.generateCard();
+
+    // const card = createCard(popupCardTitle.value, popupCardLink.value);
+    elementContainer.prepend(cardElement);
     togglePopup(cardPopup);
 }
 formCard.addEventListener("submit", addCardNew);
