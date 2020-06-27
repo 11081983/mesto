@@ -1,6 +1,6 @@
-import {Card} from './Card.js';
-import {FormValidator} from './FormValidator.js';
-import {initialCards} from './massive-cards.js';
+import { Card } from './Card.js';
+import { FormValidator } from './FormValidator.js';
+import { initialCards } from './massive-cards.js';
 
 
 const element = document.querySelector('.profile__edit-button');
@@ -46,18 +46,15 @@ function togglePopup(elem) {
 
 }
 
-
 initialCards.forEach((item) => {
-  // Создадим экземпляр карточки
-  const card = new Card(item.name, item.link, '.element-template');
-  // Создаём карточку и возвращаем наружу
-  const cardElement = card.generateCard();
-  // Добавляем в DOM
-  elementContainer.append(cardElement);
+    // Создадим экземпляр карточки
+    const card = new Card(item.name, item.link, '.element-template');
+    // Создаём карточку и возвращаем наружу
+    const cardElement = card.generateCard();
+    // Добавляем в DOM
+    elementContainer.append(cardElement);
 
 })
-
-
 
 // функция открытия попапа для добавления карточки
 
@@ -118,9 +115,9 @@ popupList.forEach((elem) => {
 function escHandler(evt) {
     const opened = document.querySelector('.popup_opened')
     if (evt.key === 'Escape') {
-        if (opened)
-        {    
-        togglePopup(opened)};
+        if (opened) {
+            togglePopup(opened)
+        };
         evt.target.removeEventListener('keydown', escHandler);
     }
 }
