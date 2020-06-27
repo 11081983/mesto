@@ -11,12 +11,8 @@ export class FormValidator {
     this._inputElements = Array.from(this._form.querySelectorAll(this._inputSelector));
   }
   enableValidation = () => {
-
     // находим инпуты
     const inputElements = Array.from(this._form.querySelectorAll(this._inputSelector));
-
-    // находим сабмит ?????
-    // const submitButton = this._form.querySelector(data.submitButtonSelector);
 
     // для всех инпутов
     const inputCheck = this._form.querySelector(this._inputSelector);
@@ -24,7 +20,6 @@ export class FormValidator {
     //кнопка сабмита
     inputCheck.addEventListener('input', () =>
       this.handleFormInput(inputElements, this._button, this._inactiveButtonClass))
-
 
     inputElements.forEach(input => {
       // проверка валидности инпута
@@ -36,13 +31,12 @@ export class FormValidator {
       // обработка сабмита
       this._form.addEventListener('submit', evt => {
         evt.preventDefault();
-
       })
     })
   }
 
   handleFormInput = (inputElements, submitButton, inactiveButtonClass) => {
-    
+
     const hasErrors = !this._inputElements.every((inputCheck) => {
       return inputCheck.checkValidity()
     });
@@ -54,7 +48,6 @@ export class FormValidator {
     )
   }
 
-
   _showError = (input, errCls, error) => {
     input.classList.add(errCls);
     error.textContent = input.validationMessage;
@@ -65,13 +58,11 @@ export class FormValidator {
     error.textContent = '';
   }
 
- 
-
   _handleInput = (evt, errCls) => {
     const input = evt.target;
     const error = document.querySelector(`#${input.id}-error`);
-    if (input.checkValidity()) {this._hideError(input, errCls, error) }
-    else {this._showError(input, errCls, error); }
+    if (input.checkValidity()) { this._hideError(input, errCls, error) }
+    else { this._showError(input, errCls, error); }
   }
 }
 

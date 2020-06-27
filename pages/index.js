@@ -1,6 +1,7 @@
-import { Card } from './Card.js';
-import { FormValidator } from './FormValidator.js';
-import { initialCards } from './massive-cards.js';
+import { Card } from '../components/Card.js';
+import { FormValidator } from '../components/FormValidator.js';
+import { initialCards } from '../components/utils.js';
+import { formValidationOptions } from '../components/utils.js';
 
 const element = document.querySelector('.profile__edit-button');
 const popup = document.querySelector('.popup');
@@ -21,22 +22,13 @@ const imagePopup = document.querySelector('.popup_type_image');
 const buttonImg = document.querySelector('.popup__toggle_img');
 
 
-const formValidationOptions = {
-    formSelector: '.popup__container',
-    inputSelector: '.popup__item',
-    submitButtonSelector: '.popup__button',
-    inactiveButtonClass: 'popup__button_disabled',
-    inputErrorClass: 'popup__item_type_error',
-    errorClass: 'popup__error_visible'
-}
-
 const formValidator = new FormValidator(formValidationOptions, document.forms.userdata);
 formValidator.enableValidation();
-formValidator.handleFormInput();
+
 
 const formCardValidator = new FormValidator(formValidationOptions, document.forms.form_card);
 formCardValidator.enableValidation();
-formCardValidator.handleFormInput();
+
 
 // функция открытия модального окна
 function togglePopup(elem) {
