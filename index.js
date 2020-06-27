@@ -2,7 +2,6 @@ import { Card } from './Card.js';
 import { FormValidator } from './FormValidator.js';
 import { initialCards } from './massive-cards.js';
 
-
 const element = document.querySelector('.profile__edit-button');
 const popup = document.querySelector('.popup');
 const button = document.querySelector('.popup__toggle');
@@ -20,7 +19,6 @@ const popupCardLink = document.querySelector('.popup__item_link'); //наход�
 const formCard = document.querySelector('.popup__container_card'); //форма карточек
 const imagePopup = document.querySelector('.popup_type_image');
 const buttonImg = document.querySelector('.popup__toggle_img');
-
 
 
 const formValidationOptions = {
@@ -43,7 +41,6 @@ formCardValidator.handleFormInput();
 // функция открытия модального окна
 function togglePopup(elem) {
     elem.classList.toggle('popup_opened');
-
 }
 
 initialCards.forEach((item) => {
@@ -53,16 +50,13 @@ initialCards.forEach((item) => {
     const cardElement = card.generateCard();
     // Добавляем в DOM
     elementContainer.append(cardElement);
-
 })
 
 // функция открытия попапа для добавления карточки
-
 elementСard.addEventListener('click', () => togglePopup(cardPopup));
 buttonCard.addEventListener('click', () => togglePopup(cardPopup));
 
 // функция добавления карточки пользователем: 
-
 function addCardNew(e) {
     e.preventDefault();
     const card = new Card(popupCardTitle.value, popupCardLink.value, '.element-template');
@@ -73,7 +67,6 @@ function addCardNew(e) {
 formCard.addEventListener("submit", addCardNew);
 
 // функция открытия профиля
-
 function closeClick() {
     nameInput.value = profileName.textContent;
     jobInput.value = job.textContent;
@@ -81,7 +74,6 @@ function closeClick() {
 }
 
 // функция сохранения профиля
-
 function formSubmitHandler(evt) {
     evt.preventDefault();
     profileName.textContent = nameInput.value;
@@ -94,12 +86,10 @@ button.addEventListener('click', () => togglePopup(popup));
 formElement.addEventListener('submit', formSubmitHandler);
 
 // функция закрытия увеличенной картинки
-
 buttonImg.addEventListener('click', () => togglePopup(imagePopup));
 
 
 //закрытие по клику на оверлэй
-
 const popupList = Array.from(document.querySelectorAll('.popup'));
 popupList.forEach((elem) => {
     elem.addEventListener('click', (e) => {
@@ -109,9 +99,7 @@ popupList.forEach((elem) => {
     })
 })
 
-
 //закрытие escape
-
 function escHandler(evt) {
     const opened = document.querySelector('.popup_opened')
     if (evt.key === 'Escape') {
