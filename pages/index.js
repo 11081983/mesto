@@ -45,8 +45,14 @@ initialCards.forEach((item) => {
 })
 
 // функция открытия попапа для добавления карточки
-elementСard.addEventListener('click', () => togglePopup(cardPopup));
+elementСard.addEventListener('click', () => {clearErrors(formCard);togglePopup(cardPopup)});
 buttonCard.addEventListener('click', () => togglePopup(cardPopup));
+
+// функция очистки полей и дезактивации сабмита
+const clearErrors = (formElement) => {
+    formElement.reset();
+    formElement.querySelector('.popup__button').classList.add('popup__button_disabled');
+}
 
 // функция добавления карточки пользователем: 
 function addCardNew(e) {
