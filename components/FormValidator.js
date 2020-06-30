@@ -19,13 +19,13 @@ export class FormValidator {
 
     //кнопка сабмита
     inputCheck.addEventListener('input', () =>
-      this.handleFormInput(inputElements, this._button, this._inactiveButtonClass))
+      this._toggleButtonState(inputElements, this._button, this._inactiveButtonClass))
 
     inputElements.forEach(input => {
       // проверка валидности инпута
       input.addEventListener('input', e => {
         this._handleInput(e, this._inputErrorClass);
-        this.handleFormInput(inputElements, this._button, this._inactiveButtonClass)
+        this._toggleButtonState(inputElements, this._button, this._inactiveButtonClass)
       })
 
       // обработка сабмита
@@ -35,8 +35,7 @@ export class FormValidator {
     })
   }
 
-  handleFormInput = (inputElements, submitButton, inactiveButtonClass) => {
-
+  _toggleButtonState = (inputElements, submitButton, inactiveButtonClass) => {
     const hasErrors = !this._inputElements.every((inputCheck) => {
       return inputCheck.checkValidity()
     });

@@ -52,6 +52,9 @@ buttonCard.addEventListener('click', () => togglePopup(cardPopup));
 const clearErrors = (formElement) => {
     formElement.reset();
     formElement.querySelector('.popup__button').classList.add('popup__button_disabled');
+    formElement.querySelector('.popup__button').setAttribute("disabled", "true");
+    formElement.querySelectorAll('.popup__item').forEach((input)=>{input.classList.remove('popup__item_type_error')})
+    formElement.querySelectorAll('.error').forEach((span)=>{span.textContent = "";})
 }
 
 // функция добавления карточки пользователем: 
