@@ -9,6 +9,8 @@ export class FormValidator {
     this._errorClass = selectors.errorClass;
     this._button = this._form.querySelector(selectors.submitButtonSelector);
     this._inputElements = Array.from(this._form.querySelectorAll(this._inputSelector));
+    
+    
   }
   enableValidation = () => {
     // находим инпуты
@@ -63,6 +65,15 @@ export class FormValidator {
     if (input.checkValidity()) { this._hideError(input, errCls, error) }
     else { this._showError(input, errCls, error); }
   }
+
+   clearErrors() {
+    this._form.reset();
+    this._inputElements.forEach(input => {
+    this.error = document.querySelector(`#${input.id}-error`);
+    this._hideError(input, this._inputErrorClass, this.error)});
+    this._toggleButtonState();
+   }
+  
 }
 
 

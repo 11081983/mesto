@@ -3,6 +3,7 @@ import { FormValidator } from '../components/FormValidator.js';
 import { initialCards } from '../components/utils.js';
 import { formValidationOptions } from '../components/utils.js';
 
+
 const element = document.querySelector('.profile__edit-button');
 const popup = document.querySelector('.popup');
 const button = document.querySelector('.popup__toggle');
@@ -26,8 +27,10 @@ const formValidator = new FormValidator(formValidationOptions, document.forms.us
 formValidator.enableValidation();
 
 
+
 const formCardValidator = new FormValidator(formValidationOptions, document.forms.form_card);
 formCardValidator.enableValidation();
+
 
 
 // функция открытия модального окна
@@ -45,17 +48,10 @@ initialCards.forEach((item) => {
 })
 
 // функция открытия попапа для добавления карточки
-elementСard.addEventListener('click', () => {clearErrors(formCard);togglePopup(cardPopup)});
+elementСard.addEventListener('click', () => { formCardValidator.clearErrors(); togglePopup(cardPopup) });
 buttonCard.addEventListener('click', () => togglePopup(cardPopup));
 
-// функция очистки полей и дезактивации сабмита
-const clearErrors = (formElement) => {
-    formElement.reset();
-    formElement.querySelector('.popup__button').classList.add('popup__button_disabled');
-    formElement.querySelector('.popup__button').setAttribute("disabled", "true");
-    formElement.querySelectorAll('.popup__item').forEach((input)=>{input.classList.remove('popup__item_type_error')})
-    formElement.querySelectorAll('.error').forEach((span)=>{span.textContent = "";})
-}
+
 
 // функция добавления карточки пользователем: 
 function addCardNew(e) {
@@ -69,6 +65,7 @@ formCard.addEventListener("submit", addCardNew);
 
 // функция открытия профиля
 function closeClick() {
+    formValidator.clearErrors();
     nameInput.value = profileName.textContent;
     jobInput.value = job.textContent;
     togglePopup(popup);
