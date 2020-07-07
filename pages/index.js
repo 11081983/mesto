@@ -2,6 +2,7 @@ import { Card } from '../components/Card.js';
 import { FormValidator } from '../components/FormValidator.js';
 import { initialCards } from '../components/utils.js';
 import { formValidationOptions } from '../components/utils.js';
+import { Section } from '../components/Section.js';
 
 
 const element = document.querySelector('.profile__edit-button');
@@ -38,14 +39,24 @@ function togglePopup(elem) {
     elem.classList.toggle('popup_opened');
 }
 
-initialCards.forEach((item) => {
-    // Создадим экземпляр карточки
+// initialCards.forEach((item) => {
+//     // Создадим экземпляр карточки
+//     const card = new Card(item.name, item.link, '.element-template');
+//     // Создаём карточку и возвращаем наружу
+//     const cardElement = card.generateCard();
+//     // Добавляем в DOM
+//     elementContainer.append(cardElement);
+// })
+
+const renderCards = new Section({
+   items: initialCards,
+   renderer: (item) => {
     const card = new Card(item.name, item.link, '.element-template');
-    // Создаём карточку и возвращаем наружу
     const cardElement = card.generateCard();
-    // Добавляем в DOM
-    elementContainer.append(cardElement);
-})
+    return cardElement;  
+   }},'.elements'); 
+   renderCards.renderItems();
+
 
 // функция открытия попапа для добавления карточки
 elementСard.addEventListener('click', () => { formCardValidator.clearErrors(); togglePopup(cardPopup) });
