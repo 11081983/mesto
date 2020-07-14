@@ -1,10 +1,10 @@
 
 export class Card {
-  constructor(cardName, cardLink, cardSelector, handleCardClick) {
+  constructor(cardName, cardLink, cardSelector, {handleCardClick}) {
     this._cardSelector = cardSelector;
     this._cardName = cardName;
     this._cardLink = cardLink;
-    this._handleCardClick = handleCardClick;
+    this.handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -42,7 +42,7 @@ export class Card {
     this._element.querySelector('.element__delete').addEventListener('click', () => { this._deletePlace(); })
     // для открытия большой картинки
     this._image.addEventListener('click', () => {
-      this._elementPic();
+      this.handleCardClick();
     })
   }
 
@@ -57,14 +57,14 @@ export class Card {
     this._element = null;
   }
   // открытие большой карточки
-  _elementPic() {
-    const picOpen = document.querySelector('.popup_type_image');
-    this._openImg = picOpen.querySelector('.popup__imgopen');
-    picOpen.classList.toggle('popup_opened');
-    this._openImg.src = this._cardLink;  // вставляем в попап картинку на весь экран, по которой кликнули
-    picOpen.querySelector('.popup__nameopen').textContent = this._cardName;   // вставляем надпись от картинки по которой кликнули
-    this._openImg.alt = this._cardName;  // альт для большой картинки
-  }
+  // _elementPic() {
+  //   const picOpen = document.querySelector('.popup_type_image');
+  //   this._openImg = picOpen.querySelector('.popup__imgopen');
+  //   picOpen.classList.toggle('popup_opened');
+  //   this._openImg.src = this._cardLink;  // вставляем в попап картинку на весь экран, по которой кликнули
+  //   picOpen.querySelector('.popup__nameopen').textContent = this._cardName;   // вставляем надпись от картинки по которой кликнули
+  //   this._openImg.alt = this._cardName;  // альт для большой картинки
+  // }
 }
 
 

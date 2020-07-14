@@ -1,22 +1,18 @@
 export class UserInfo {
-    constructor({profileName, job}) {
-      this._name = profileName.textContent;
-      this._job = job.textContent;
-    }
-    // Содержит публичный метод getUserInfo, который возвращает объект с данными пользователя. Этот метод пригодится когда данные пользователя нужно будет подставить в форму при открытии.
-    getUserInfo() {
-      const data = {}
-  
-      data.name = this._name;
-      data.job = this._job;
-  
-      return data
-  
-    }
-    // Содержит публичный метод setUserInfo, который принимает новые данные пользователя и добавляет их на страницу.
-    setUserInfo(data) {
-      this._name = data.name;
-      this._job = data.job;
-      
-    }
-  }
+  constructor({profileName, profileInfo}) {
+    this._profileName = document.querySelector(profileName);
+    this._profileInfo = document.querySelector(profileInfo); 
+}
+
+getUserInfo() {
+    this.profileInfoObj = {};
+    this.profileInfoObj.name = this._profileName.textContent;
+    this.profileInfoObj.info = this._profileInfo.textContent;
+    return this.profileInfoObj;
+}
+
+setUserInfo(obj) {
+    this._profileName.textContent = obj.name;
+    this._profileInfo.textContent = obj.info;
+}       
+}

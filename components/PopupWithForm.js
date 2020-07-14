@@ -1,7 +1,7 @@
 import { Popup } from './Popup.js'
 
 export class PopupWithForm extends Popup {
-    constructor(popupName, { toggleButtonState }, { clearErrors }) {
+    constructor(popupName, { toggleButtonState }, clearErrors) {
         super(popupName);
         this._toggleButtonState = toggleButtonState;
         this._clearErrors = clearErrors;
@@ -21,7 +21,7 @@ export class PopupWithForm extends Popup {
 
     setEventListeners() {
         super.setEventListeners();
-        this._popup.addEventListener('submit', () => {
+        this._popupName.addEventListener('submit', () => {
             this._toggleButtonState(this._getInputValues());
             this.close();
         })
